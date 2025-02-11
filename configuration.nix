@@ -176,6 +176,9 @@
   ripgrep
   yazi
   home-manager
+  lm_sensors
+  lutris
+  wine 
   
  
   #hyprland

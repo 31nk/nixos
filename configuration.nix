@@ -140,6 +140,14 @@
   services.gvfs.enable = true; 
   services.tumbler.enable = true;
 
+  # setting zsh as shell
+
+  programs.fish.enable = true;
+  environment.shells = with pkgs; [ fish ];
+  users.users.dorian.shell = pkgs.fish;
+
+
+
   # nix flakes and experimental features
   nix.settings.experimental-features = [ "nix-command" "flakes"];
 
@@ -168,6 +176,7 @@
   ripgrep
   yazi
   home-manager
+  
  
   #hyprland
   waybar

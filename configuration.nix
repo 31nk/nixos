@@ -162,6 +162,7 @@
     lm_sensors
     lutris
     wine
+
   
     # hyprland
     waybar

@@ -1,7 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { input, config, pkgs, ... }:
 
 {
@@ -56,7 +52,6 @@
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
   
-
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
@@ -76,10 +71,7 @@
     pulse.enable = true;
     # If you want to use JACK applications, uncomment this
     #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
+    # media-session.enable = true;
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
@@ -102,7 +94,7 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  #Enabling Hyprland
+  # Enabling Hyprland
   programs.hyprland.enable = true;
   services.flatpak.enable = true;
 
@@ -113,7 +105,7 @@
     xdg-desktop-portal-gtk
   ];
 
-    # Set environment variables
+  # Set environment variables
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
     QT_QPA_PLATFORM = "wayland";
@@ -124,88 +116,82 @@
     XDG_CURRENT_DESKTOP = "Hyprland";
     TERMINAL = "foot";
   };
-  
 
-  #Steam
+  # Steam
   programs.steam = {
-	enable = true;
-	dedicatedServer.openFirewall = true;
+    enable = true;
+    dedicatedServer.openFirewall = true;
   };
 
-
-
-  #thunar for file manager
+  # Thunar for file manager
   programs.thunar.enable = true;
   programs.xfconf.enable = true;
   services.gvfs.enable = true; 
   services.tumbler.enable = true;
 
-  # setting zsh as shell
-
+  # Setting zsh as shell
   programs.fish.enable = true;
   environment.shells = with pkgs; [ fish ];
   users.users.dorian.shell = pkgs.fish;
 
-
-
-  # nix flakes and experimental features
+  # Nix flakes and experimental features
   nix.settings.experimental-features = [ "nix-command" "flakes"];
-
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-	
-  neovim	#text editor
-  neovide 
-  foot		#terminal  
-  steam		#steam
-  spotube	#music player 
-  nitch		#system info display
-  btop		
-  playerctl	#music backend
-  git		#git
-  vesktop	#discord
-  os-prober	#for grub dual boot
-  vscode	#text editor
-  gvfs		#backend for thunar
-  pavucontrol
-  fastfetch
-  fzf
-  nwg-look
-  ripgrep
-  yazi
-  home-manager
-  lm_sensors
-  lutris
-  wine 
+    neovim  # text editor
+    neovide
+    foot  # terminal  
+    steam  # steam
+    spotube  # music player 
+    nitch  # system info display
+    btop
+    playerctl  # music backend
+    git  # git
+    vesktop  # discord
+    os-prober  # for grub dual boot
+    vscode  # text editor
+    gvfs  # backend for thunar
+    pavucontrol
+    fastfetch
+    fzf
+    nwg-look
+    ripgrep
+    yazi
+    home-manager
+    lm_sensors
+    lutris
+    wine
   
- 
-  #hyprland
-  waybar
-  hyprpicker 
-  hypridle
-  aquamarine
-  wl-clipboard
-  grim
-  slurp
-  wofi
-  swaynotificationcenter
-  swaybg
-  pywal
-  nerdfonts
-  swww
-  hyprcursor
-  
-  # C++
-  gcc
-  clang 
-  binutils
+    # hyprland
+    waybar
+    hyprpicker 
+    hypridle
+    aquamarine
+    wl-clipboard
+    grim
+    slurp
+    wofi
+    swaynotificationcenter
+    swaybg
+    pywal
+    # Replaced nerdfonts with individual font packages
+    pkgs.nerd-fonts._0xproto
+    pkgs.nerd-fonts.droid-sans-mono
+    pkgs.nerd-fonts.fira-code
+    pkgs.nerd-fonts.jetbrains-mono
+    pkgs.nerd-fonts.sauce-code-pro
+    swww
+    hyprcursor
 
-
+    # C++
+    gcc
+    clang 
+    binutils
   ];
 
-  # automatic updating
+  # Automatic updating
   system.autoUpgrade.enable = true;
   system.autoUpgrade.allowReboot = true;
 
@@ -235,5 +221,5 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.11"; # Did you read the comment?
-
 }
+

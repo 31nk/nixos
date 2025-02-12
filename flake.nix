@@ -1,21 +1,19 @@
 {
-  description = "A NixOS configuration with Home Manager integration and Catppuccin theme";
+  description = "A NixOS configuration with Home Manager integration";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
     home-manager.url = "github:nix-community/home-manager";
-    catppuccin.url = "github:catppuccin/nix";  # Re-enable the Catppuccin input
   };
 
-  outputs = { self, nixpkgs, home-manager, catppuccin, ... }: {
+  outputs = { self, nixpkgs, home-manager, ... }: {
     # NixOS System Configuration
     nixosConfigurations = {
       nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           ./configuration.nix  # Your NixOS configuration file
-          home-manager.nixosModules.home-manager  # Home Manager module for NixOS
-          catppuccin.nixosModules.catppuccin  # Adding Catppuccin for system-wide theme
+          home-manager.nixosModules.home-manager  # Integrating home-manager into NixOS
         ];
       };
     };
@@ -25,8 +23,7 @@
       dorian = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         modules = [
-          /home/dorian/nixos-config/home.nix  # Your Home Manager configuration file
-          catppuccin.homeManagerModules.catppuccin  # Add Catppuccin theme here
+          /home/dorian/nixos-config/home.nix  # Absolute path to your Home Manager configuration
         ];
       };
     };

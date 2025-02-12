@@ -155,8 +155,7 @@
     gvfs  # backend for thunar
     pavucontrol
     fastfetch
-    fzf
-    nwg-look
+    fzf 
     ripgrep
     yazi
     home-manager
@@ -178,6 +177,7 @@
     pywal
     swww
     hyprcursor
+    nerdfonts
 
     
     # C++
@@ -185,19 +185,7 @@
     clang 
     binutils
     
-    #nerdfonts
-    pkgs.nerd-fonts._0xproto
-    pkgs.nerd-fonts._3270
-    pkgs.nerd-fonts.agave
-    pkgs.nerd-fonts.anonymice
-    pkgs.nerd-fonts.arimo
-    pkgs.nerd-fonts.fira-code
-    pkgs.nerd-fonts.hack
-    pkgs.nerd-fonts.droid-sans-mono
-    pkgs.nerd-fonts.jetbrains-mono
-    pkgs.nerd-fonts.sauce-code-pro
-    pkgs.nerd-fonts.code-new-roman
-
+   
   ];
 
   # Automatic updating

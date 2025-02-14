@@ -161,7 +161,8 @@
     home-manager
     lm_sensors
     lutris
-    wine
+    wine 
+    starship
 
   
     # hyprland
